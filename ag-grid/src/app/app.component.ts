@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 const columnDefs = [
-  {headerName: "Make", field: "make"},
+  {headerName: "Make", field: "make", sortable: true},
   {headerName: "Model", field: "model"},
   {headerName: "Price", field: "price"}
 ];
