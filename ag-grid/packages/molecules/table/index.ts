@@ -14,6 +14,9 @@ export class Table {
     ngOnInit() {
         this.readData();
     }
+    ngOnChanges() {
+        this.readData();
+    }
 
     readData() {
         const {columnDefs, rowData} = this.tableData;
