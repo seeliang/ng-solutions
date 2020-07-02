@@ -6,6 +6,7 @@ import {ICellRendererAngularComp} from "@ag-grid-community/angular";
 @Component({
     selector: 'm-stock-cell',
     template: `
+        <i style="width: 25px; display:inline-block">{{this.cell.value}}</i>
         <button (onClicked)="clicked($event)" > + </button>
         <button (onClicked)="clicked($event)" > - </button>
     `
