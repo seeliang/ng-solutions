@@ -7,8 +7,8 @@ import {ICellRendererAngularComp} from "@ag-grid-community/angular";
     selector: 'm-stock-cell',
     template: `
         <i style="width: 25px; display:inline-block">{{this.cell.value}}</i>
-        <button (onClicked)="clicked($event)" > + </button>
-        <button (onClicked)="clicked($event)" > - </button>
+        <button (click)="clicked('plus')" > + </button>
+        <button (click)="clicked('minus')" > - </button>
     `
 })
 
@@ -21,8 +21,8 @@ export class StockCell implements ICellRendererAngularComp {
         this.cell = {value: params.value, model: params.data.model};
     }
 
-    public clicked(cell: any): void {
-        console.log("Child Cell Clicked: " + JSON.stringify(cell));
+    public clicked(type): void {
+        console.log(`Child Cell Clicked: ${type}  ${this.cell.model}`);
     }
 
     refresh(): boolean {
