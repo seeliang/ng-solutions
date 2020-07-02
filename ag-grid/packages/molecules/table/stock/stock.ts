@@ -22,7 +22,8 @@ export class StockCell implements ICellRendererAngularComp {
     }
 
     public clicked(type): void {
-        console.log(`Child Cell Clicked: ${type}  ${this.cell.model}`);
+        const {model, value} = this.cell
+        this.params.actions({type,model,value});
     }
 
     refresh(): boolean {

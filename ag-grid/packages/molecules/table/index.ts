@@ -2,10 +2,16 @@ import { Component, Input } from '@angular/core';
 import {GridOptions, Module, AllCommunityModules} from "@ag-grid-community/all-modules";
 import {StockCell} from './stock/stock';
 
-const transformStock = (data) => {
+const transformStock = ({data, actions}) => {
     const {columnDefs} = data
     const updatedCol = columnDefs.map( i => i.headerName === 'Stock'? 
-        {...i, cellRendererFramework: StockCell}
+        {
+            ...i, 
+            cellRendererFramework: StockCell,
+            cellRendererParams:{
+                actions: actions
+            }
+        }
     : i);
     return {...data, columnDefs:updatedCol}
 }
@@ -35,7 +41,11 @@ export class Table {
     }
 
     initData() {
-        this.gridOptions = transformStock(this.tableData);
+        this.gridOptions = transformStock({data:this.tableData, actions:this.stockActions});
+    }
+
+    stockActions(data) {
+        console.log(data);
     }
 
     readData() {
