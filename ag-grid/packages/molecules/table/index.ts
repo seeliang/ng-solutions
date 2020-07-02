@@ -29,6 +29,9 @@ export class Table {
     }
 
     readData() {
+        if(!this.gridApi.setRowData){ // fix life cycle issue
+            return;
+        }
         const { rowData } = this.tableData;
         this.gridApi.setRowData(rowData)
     }

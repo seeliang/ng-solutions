@@ -3,6 +3,7 @@ const columnDefs = [
   {headerName: "Make", field: "make", sortable: true},
   {headerName: "Model", field: "model"},
   {headerName: "Price", field: "price"},
+  {headerName: "Stock", field: "stock"},
 ];
 
 const sampleA = {
@@ -18,10 +19,19 @@ const sampleB = {
   columnDefs,
   rowData : [
     {make: "Mercedes", model: "A180", price: 45000},
-    {make: "BMW", model: "2", price: 42000},
+    {make: "BMW", model: "218i", price: 42000},
     {make: "Audi", model: "A3", price: 42000}
   ]
 }
+
+const joinStock = ({stock, data }) => {
+  const {rowData} = data;
+  const joinedRowdata = rowData.map( i => ({
+    ...i, 
+    stock: stock[i.model]})
+  );
+  return {...data, rowData: joinedRowdata}
+};
 
 @Component({
   selector: 'app-root',
@@ -32,18 +42,28 @@ const sampleB = {
 export class AppComponent {
   title = 'ag-grid';
     public tableData: object;
+    private fakeStockApi: object;
+
 
     constructor() {
-      this.tableData = {}
+      this.tableData = {};
+      this.fakeStockApi = {
+        Celica: 1,
+        Mondeo: 3,
+        Boxter: 1,
+        A180: 3,
+        '218i': 4,
+        A3: 2,
+      }
     }
 
     ngOnInit() {
-      this.tableData= sampleA
+      this.tableData= joinStock({data:sampleA, stock: this.fakeStockApi})
     }
     onLoadA() {
-      this.tableData= sampleA
+      this.tableData= joinStock({data:sampleA, stock: this.fakeStockApi})
     }
     onLoadB() {
-      this.tableData= sampleB
+      this.tableData= joinStock({data:sampleB, stock: this.fakeStockApi})
     }
 }
