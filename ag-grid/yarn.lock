@@ -12,6 +12,13 @@
     "@ag-grid-community/csv-export" "~23.2.0"
     "@ag-grid-community/infinite-row-model" "~23.2.0"
 
+"@ag-grid-community/angular@^23.2.1":
+  version "23.2.1"
+  resolved "https://registry.yarnpkg.com/@ag-grid-community/angular/-/angular-23.2.1.tgz#25df430534884db29e556e305f8d1e893917e21e"
+  integrity sha512-+2fnqd49MxqFePKe820sFOFt0FnNs789Vz3n5ROO0chM8ojO0waKNh3rzIs5FkBha6BvkvcC/tKwkrDGx63I4w==
+  dependencies:
+    tslib "^1.10.0"
+
 "@ag-grid-community/client-side-row-model@~23.2.0":
   version "23.2.1"
   resolved "https://registry.yarnpkg.com/@ag-grid-community/client-side-row-model/-/client-side-row-model-23.2.1.tgz#b7f77b110f9a40b0e62c8ed486ecdd8fd98af70b"
@@ -1361,13 +1368,6 @@ after@0.8.2:
   version "0.8.2"
   resolved "https://registry.yarnpkg.com/after/-/after-0.8.2.tgz#fedb394f9f0e02aa9768e702bda23b505fae7e1f"
   integrity sha1-/ts5T58OAqqXaOcCvaI7UF+ufh8=
-
-ag-grid-angular@^23.2.1:
-  version "23.2.1"
-  resolved "https://registry.yarnpkg.com/ag-grid-angular/-/ag-grid-angular-23.2.1.tgz#332e46845a2b6171b8b4b0d53f16f53f11255a66"
-  integrity sha512-SxP7IeLkjlqmh9nDBGy2uYpnc09DkGjjUNxrUrvYogMDnITcx1cKkQry4ayH9eNhq6pvRNcmzNlXPWN8JoAu7Q==
-  dependencies:
-    tslib "^1.10.0"
 
 ag-grid-community@^23.2.1:
   version "23.2.1"
