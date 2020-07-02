@@ -44,20 +44,20 @@ export class AppComponent {
     public tableData: object;
     private fakeStockApi: object;
 
-
     constructor() {
       this.tableData = {};
-      this.fakeStockApi = {
+      this.fakeStockApi = {};
+    }
+
+    ngOnInit() {
+      this.fakeStockApi = { // get value from api
         Celica: 1,
         Mondeo: 3,
         Boxter: 1,
         A180: 3,
         '218i': 4,
         A3: 2,
-      }
-    }
-
-    ngOnInit() {
+      },
       this.tableData= joinStock({data:sampleA, stock: this.fakeStockApi})
     }
     onLoadA() {
