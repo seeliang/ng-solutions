@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import {GridOptions, Module, AllCommunityModules} from "@ag-grid-community/all-modules";
 @Component({
     selector: 'm-table',
     templateUrl: './table.html',
@@ -8,19 +9,27 @@ export class Table {
     @Input() 
     tableData
 
-    public rowData:any[];
-    public columnDefs:any[];
+    public gridOptions: GridOptions;
+    public modules: Module[] = AllCommunityModules;
+    private gridApi;
+  
+    onGridReady(params) {
+      this.gridApi = params.api;
+    }
 
     ngOnInit() {
-        this.readData();
+        this.initData();
     }
     ngOnChanges() {
         this.readData();
     }
 
+    initData() {
+        this.gridOptions = this.tableData;
+    }
+
     readData() {
-        const {columnDefs, rowData} = this.tableData;
-        this.columnDefs = columnDefs;
-        this.rowData = rowData;
+        const { rowData } = this.tableData;
+        this.gridApi.setRowData(rowData)
     }
 }
