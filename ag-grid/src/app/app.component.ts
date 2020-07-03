@@ -63,8 +63,7 @@ const fakeApiUpdate= ({prev,model,type}) => { // simulate redux: call api and lo
   styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent { // container: data layer
-  title = 'ag-grid';
+export class AppComponent { // container: data layer, hooking with redux 
     public tableData: object;
     private stockApi: object; // updating data
 
