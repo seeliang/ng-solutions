@@ -38,7 +38,6 @@ const getData = ({rowDataStatic, columnDefs, stock}) => ({
 export class AppComponent {
   title = 'ag-grid';
     public tableData: object;
-    public tableActions: object;
     private fakeStockApi: object;
 
     constructor() {
@@ -64,6 +63,19 @@ export class AppComponent {
       this.tableData= getData({rowDataStatic:sampleB, columnDefs: staticCol, stock: this.fakeStockApi})
     }
     stockCall({type, model}) {
-      console.log(type, model);
+      const update = { [model]: this.fakeStockApi[model]}
+      if (type === 'plus') {
+        update[model]++
+      }
+      if (type === 'minus' && update[model] > 0) {
+        update[model]--
+      }
+      this.fakeStockApi = {...this.fakeStockApi, ...update};
+      this.loadStockChange();
+    }
+
+    loadStockChange() {
+      const {columnDefs, rowData} = this.tableData
+      this.tableData= getData({rowDataStatic: rowData, columnDefs, stock: this.fakeStockApi})
     }
 }
