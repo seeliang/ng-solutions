@@ -3,7 +3,7 @@ import {ICellRendererAngularComp} from "@ag-grid-community/angular";
 
 // TODO: should use scss and html 
 @Component({
-    selector: 'm-cell-stock',
+    selector: 'm-table__cell-stock',
     templateUrl: './stock.html',
     styleUrls: ['./stock.scss']
 })
