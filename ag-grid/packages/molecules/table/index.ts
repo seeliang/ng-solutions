@@ -2,6 +2,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import {GridOptions, Module, AllCommunityModules} from "@ag-grid-community/all-modules";
 import {StockCell} from './stock/stock';
 
+// pure functions
 const transformStock = ({data, actions}) => {
     const {columnDefs} = data
     const updatedCol = columnDefs.map( i => i.headerName === 'Stock'? 
@@ -16,6 +17,7 @@ const transformStock = ({data, actions}) => {
     return {...data, columnDefs:updatedCol}
 }
 
+// angular
 @Component({
     selector: 'm-table',
     templateUrl: './table.html',

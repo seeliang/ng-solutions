@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+
+// api data 
 const staticCol = [
   {headerName: "Make", field: "make", sortable: true},
   {headerName: "Model", field: "model"},
@@ -18,6 +20,16 @@ const sampleB =  [
   {make: "Audi", model: "A3", price: 42000}
 ]
 
+const stock = { 
+  Celica: 1,
+  Mondeo: 3,
+  Boxter: 1,
+  A180: 3,
+  '218i': 4,
+  A3: 2,
+};
+
+// pure functions
 const joinStock = ({stock, data }) => data.map( i => ({
   ...i, 
   stock: stock[i.model]})
@@ -43,6 +55,8 @@ const fakeApiUpdate= ({prev,model,type}) => { // simulate call api and load api 
   }
   return {...prev, ...update};
 }
+
+// angular
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -60,14 +74,8 @@ export class AppComponent { // container: data layer
     }
 
     ngOnInit() {
-      this.fakeStockApi = { // get value from api
-        Celica: 1,
-        Mondeo: 3,
-        Boxter: 1,
-        A180: 3,
-        '218i': 4,
-        A3: 2,
-      },
+      // get value from api
+      this.fakeStockApi = stock 
       this.tableData= generateTableData({rowData:sampleA, columnDefs: staticCol, stock: this.fakeStockApi});
     }
     onLoadA() {
