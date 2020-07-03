@@ -32,6 +32,17 @@ const loadStockChange = ({stock, prev}) => {
   const {columnDefs, rowData} = prev
   return getData({rowDataStatic: rowData, columnDefs, stock})
 }
+
+const fakeApiUpdate= ({prev,model,type}) => { // simulate call api and load api
+  const update = { [model]: prev[model]}
+  if (type === 'plus') {
+    update[model]++
+  }
+  if (type === 'minus' && update[model] > 0) {
+    update[model]--
+  }
+  return {...prev, ...update};
+}
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -66,14 +77,7 @@ export class AppComponent {
       this.tableData= getData({rowDataStatic:sampleB, columnDefs: staticCol, stock: this.fakeStockApi})
     }
     stockCall({type, model}) {
-      const update = { [model]: this.fakeStockApi[model]}
-      if (type === 'plus') {
-        update[model]++
-      }
-      if (type === 'minus' && update[model] > 0) {
-        update[model]--
-      }
-      this.fakeStockApi = {...this.fakeStockApi, ...update};
+      this.fakeStockApi = fakeApiUpdate({prev:this.fakeStockApi, type, model});
       this.loadStockChange();
     }
 
