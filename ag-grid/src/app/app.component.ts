@@ -63,7 +63,7 @@ export class AppComponent {
     onLoadB() {
       this.tableData= getData({rowDataStatic:sampleB, columnDefs: staticCol, stock: this.fakeStockApi})
     }
-    stockCall({type, model, value}) {
-      console.log(type, model, value);
+    stockCall({type, model}) {
+      console.log(type, model);
     }
 }
