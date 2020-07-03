@@ -28,7 +28,10 @@ const getData = ({rowDataStatic, columnDefs, stock}) => ({
   rowData: joinStock({data: rowDataStatic, stock})
 })
 
-
+const loadStockChange = ({stock, prev}) => {
+  const {columnDefs, rowData} = prev
+  return getData({rowDataStatic: rowData, columnDefs, stock})
+}
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -75,7 +78,6 @@ export class AppComponent {
     }
 
     loadStockChange() {
-      const {columnDefs, rowData} = this.tableData
-      this.tableData= getData({rowDataStatic: rowData, columnDefs, stock: this.fakeStockApi})
+      this.tableData = loadStockChange({prev:this.tableData, stock: this.fakeStockApi})
     }
 }
