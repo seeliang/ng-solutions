@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {AgGridModule} from "@ag-grid-community/angular";
 import { AppComponent } from './app.component';
-import { Table } from '../../packages/molecules/table';
+import { Table } from '../../packages';
 
 @NgModule({
   declarations: [
