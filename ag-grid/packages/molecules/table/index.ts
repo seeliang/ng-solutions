@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import {GridOptions, Module, AllCommunityModules} from "@ag-grid-community/all-modules";
 import {StockCell} from './stock/stock';
 
@@ -24,6 +24,8 @@ const transformStock = ({data, actions}) => {
 export class Table {
     @Input() 
     tableData
+    @Output()
+    stockUpdate= new EventEmitter()
 
     public gridOptions: GridOptions;
     public modules: Module[] = AllCommunityModules;
@@ -41,11 +43,11 @@ export class Table {
     }
 
     initData() {
-        this.gridOptions = transformStock({data:this.tableData, actions:this.stockActions});
+        this.gridOptions = transformStock({data:this.tableData, actions:this.stockActions.bind(this)});
     }
 
-    stockActions(data) {
-        console.log(data);
+    public stockActions(data) {
+        this.stockUpdate.emit(data)
     }
 
     readData() {

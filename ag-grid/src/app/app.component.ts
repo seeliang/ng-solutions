@@ -38,6 +38,7 @@ const getData = ({rowDataStatic, columnDefs, stock}) => ({
 export class AppComponent {
   title = 'ag-grid';
     public tableData: object;
+    public tableActions: object;
     private fakeStockApi: object;
 
     constructor() {
@@ -54,12 +55,15 @@ export class AppComponent {
         '218i': 4,
         A3: 2,
       },
-      this.tableData= getData({rowDataStatic:sampleA, columnDefs: staticCol, stock: this.fakeStockApi})
+      this.tableData= getData({rowDataStatic:sampleA, columnDefs: staticCol, stock: this.fakeStockApi});
     }
     onLoadA() {
       this.tableData= getData({rowDataStatic:sampleA, columnDefs: staticCol, stock: this.fakeStockApi})
     }
     onLoadB() {
       this.tableData= getData({rowDataStatic:sampleB, columnDefs: staticCol, stock: this.fakeStockApi})
+    }
+    stockCall({type, model, value}) {
+      console.log(type, model, value);
     }
 }
