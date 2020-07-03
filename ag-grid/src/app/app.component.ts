@@ -33,7 +33,7 @@ const loadStockChange = ({stock, prev}) => {
   return generateTableData({rowData: rowData, columnDefs, stock})
 }
 
-const fakeApiUpdate= ({prev,model,type}) => { // simulate call api and load api
+const fakeApiUpdate= ({prev,model,type}) => { // simulate call api and load api data
   const update = { [model]: prev[model]}
   if (type === 'plus') {
     update[model]++
@@ -49,7 +49,7 @@ const fakeApiUpdate= ({prev,model,type}) => { // simulate call api and load api
   styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent {
+export class AppComponent { // container: data layer
   title = 'ag-grid';
     public tableData: object;
     private fakeStockApi: object;

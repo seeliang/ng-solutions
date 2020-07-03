@@ -21,7 +21,7 @@ const transformStock = ({data, actions}) => {
     templateUrl: './table.html',
 })
 
-export class Table {
+export class Table { // presentational : render layer
     @Input() 
     tableData
     @Output()
