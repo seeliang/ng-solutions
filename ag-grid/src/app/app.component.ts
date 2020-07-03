@@ -84,12 +84,14 @@ export class AppComponent { // container: data layer
     onLoadB() {
       this.tableData= generateTableData({rowData:sampleB, columnDefs: staticCol, stock: this.stockApi})
     }
-    stockCall({type, model}) { // simulate redux
-      this.stockApi = fakeApiUpdate({prev:this.stockApi, type, model});
-      this.loadStockChange();
+  
+    stockCall(data) { 
+      this.callReduxActionAndTriggerNgOnChanges(data)
     }
 
-    loadStockChange() {
+    callReduxActionAndTriggerNgOnChanges({type, model}) {
+      // simulate ngOnchanges when redux return data
+      this.stockApi = fakeApiUpdate({prev:this.stockApi, type, model});
       this.tableData = loadStockChange({prev:this.tableData, stock: this.stockApi})
     }
 }
