@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import {GridOptions, Module, AllCommunityModules} from "@ag-grid-community/all-modules";
-import {StockCell} from './stock/stock';
+import {CellStock} from './cells/stock/stock';
 
 // pure functions
 const transformStock = ({data, actions}) => {
@@ -8,7 +8,7 @@ const transformStock = ({data, actions}) => {
     const updatedCol = columnDefs.map( i => i.headerName === 'Stock'? 
         {
             ...i, 
-            cellRendererFramework: StockCell,
+            cellRendererFramework: CellStock,
             cellRendererParams:{
                 actions: actions
             }

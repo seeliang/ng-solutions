@@ -3,15 +3,12 @@ import {ICellRendererAngularComp} from "@ag-grid-community/angular";
 
 // TODO: should use scss and html 
 @Component({
-    selector: 'm-stock-cell',
-    template: `
-        <i style="width: 25px; display:inline-block">{{this.cell.value}}</i>
-        <button (click)="clicked('plus')" > + </button>
-        <button (click)="clicked('minus')" > - </button>
-    `
+    selector: 'm-cell-stock',
+    templateUrl: './stock.html',
+    styleUrls: ['./stock.scss']
 })
 
-export class StockCell implements ICellRendererAngularComp {
+export class CellStock implements ICellRendererAngularComp {
     private params: any;
     public cell: any;
 
