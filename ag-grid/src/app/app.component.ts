@@ -23,14 +23,14 @@ const joinStock = ({stock, data }) => data.map( i => ({
   stock: stock[i.model]})
 );
 
-const getData = ({rowDataStatic, columnDefs, stock}) => ({
+const generateTableData = ({rowData, columnDefs, stock}) => ({
   columnDefs,
-  rowData: joinStock({data: rowDataStatic, stock})
+  rowData: joinStock({data: rowData, stock})
 })
 
 const loadStockChange = ({stock, prev}) => {
   const {columnDefs, rowData} = prev
-  return getData({rowDataStatic: rowData, columnDefs, stock})
+  return generateTableData({rowData: rowData, columnDefs, stock})
 }
 
 const fakeApiUpdate= ({prev,model,type}) => { // simulate call api and load api
@@ -68,13 +68,13 @@ export class AppComponent {
         '218i': 4,
         A3: 2,
       },
-      this.tableData= getData({rowDataStatic:sampleA, columnDefs: staticCol, stock: this.fakeStockApi});
+      this.tableData= generateTableData({rowData:sampleA, columnDefs: staticCol, stock: this.fakeStockApi});
     }
     onLoadA() {
-      this.tableData= getData({rowDataStatic:sampleA, columnDefs: staticCol, stock: this.fakeStockApi})
+      this.tableData= generateTableData({rowData:sampleA, columnDefs: staticCol, stock: this.fakeStockApi})
     }
     onLoadB() {
-      this.tableData= getData({rowDataStatic:sampleB, columnDefs: staticCol, stock: this.fakeStockApi})
+      this.tableData= generateTableData({rowData:sampleB, columnDefs: staticCol, stock: this.fakeStockApi})
     }
     stockCall({type, model}) {
       this.fakeStockApi = fakeApiUpdate({prev:this.fakeStockApi, type, model});
