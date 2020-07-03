@@ -45,7 +45,7 @@ const loadStockChange = ({stock, prev}) => {
   return generateTableData({rowData: rowData, columnDefs, stock})
 }
 
-const fakeApiUpdate= ({prev,model,type}) => { // simulate call api and load api data
+const fakeApiUpdate= ({prev,model,type}) => { // simulate redux: call api and load api data from ngOnChanges
   const update = { [model]: prev[model]}
   if (type === 'plus') {
     update[model]++
@@ -66,30 +66,30 @@ const fakeApiUpdate= ({prev,model,type}) => { // simulate call api and load api 
 export class AppComponent { // container: data layer
   title = 'ag-grid';
     public tableData: object;
-    private fakeStockApi: object;
+    private stockApi: object; // updating data
 
     constructor() {
       this.tableData = {};
-      this.fakeStockApi = {};
+      this.stockApi = {};
     }
 
     ngOnInit() {
       // get value from api
-      this.fakeStockApi = stock 
-      this.tableData= generateTableData({rowData:sampleA, columnDefs: staticCol, stock: this.fakeStockApi});
+      this.stockApi = stock 
+      this.tableData= generateTableData({rowData:sampleA, columnDefs: staticCol, stock: this.stockApi});
     }
     onLoadA() {
-      this.tableData= generateTableData({rowData:sampleA, columnDefs: staticCol, stock: this.fakeStockApi})
+      this.tableData= generateTableData({rowData:sampleA, columnDefs: staticCol, stock: this.stockApi})
     }
     onLoadB() {
-      this.tableData= generateTableData({rowData:sampleB, columnDefs: staticCol, stock: this.fakeStockApi})
+      this.tableData= generateTableData({rowData:sampleB, columnDefs: staticCol, stock: this.stockApi})
     }
-    stockCall({type, model}) {
-      this.fakeStockApi = fakeApiUpdate({prev:this.fakeStockApi, type, model});
+    stockCall({type, model}) { // simulate redux
+      this.stockApi = fakeApiUpdate({prev:this.stockApi, type, model});
       this.loadStockChange();
     }
 
     loadStockChange() {
-      this.tableData = loadStockChange({prev:this.tableData, stock: this.fakeStockApi})
+      this.tableData = loadStockChange({prev:this.tableData, stock: this.stockApi})
     }
 }
