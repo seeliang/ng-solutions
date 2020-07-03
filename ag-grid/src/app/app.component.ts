@@ -1,20 +1,20 @@
 import { Component } from '@angular/core';
 
 // api data 
-const staticCol = [
+const colSet = [
   {headerName: "Make", field: "make", sortable: true},
   {headerName: "Model", field: "model"},
   {headerName: "Price", field: "price"},
   {headerName: "Stock", field: "stock"},
 ];
 
-const sampleA =  [
+const rowDataSampleA =  [
   {make: "Toyota", model: "Celica", price: 35000},
   {make: "Ford", model: "Mondeo", price: 32000},
   {make: "Porsche", model: "Boxter", price: 72000}
 ]
 
-const sampleB =  [
+const rowDataSampleB =  [
   {make: "Mercedes", model: "A180", price: 45000},
   {make: "BMW", model: "218i", price: 42000},
   {make: "Audi", model: "A3", price: 42000}
@@ -76,13 +76,13 @@ export class AppComponent { // container: data layer
     ngOnInit() {
       // get value from api
       this.stockApi = stock 
-      this.tableData= generateTableData({rowData:sampleA, columnDefs: staticCol, stock: this.stockApi});
+      this.tableData= generateTableData({rowData:rowDataSampleA, columnDefs: colSet, stock: this.stockApi});
     }
     onLoadA() {
-      this.tableData= generateTableData({rowData:sampleA, columnDefs: staticCol, stock: this.stockApi})
+      this.tableData= generateTableData({rowData:rowDataSampleA, columnDefs: colSet, stock: this.stockApi})
     }
     onLoadB() {
-      this.tableData= generateTableData({rowData:sampleB, columnDefs: staticCol, stock: this.stockApi})
+      this.tableData= generateTableData({rowData:rowDataSampleB, columnDefs: colSet, stock: this.stockApi})
     }
   
     stockCall(data) { 
