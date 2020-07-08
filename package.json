@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "solutions/**"
+  ],
   "dependencies": {
     "@angular/cli": "^9.1.9"
   }
