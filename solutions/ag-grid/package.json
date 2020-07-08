@@ -9,10 +9,14 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
+  "workspaces": {
+    "nohoist": ["@ag-grid-community/core"]
+  },
   "private": true,
   "dependencies": {
     "@ag-grid-community/all-modules": "^23.2.1",
     "@ag-grid-community/angular": "^23.2.1",
+    "@ag-grid-community/core": "^23.2.1",
     "@angular/animations": "~9.1.11",
     "@angular/common": "~9.1.11",
     "@angular/compiler": "~9.1.11",
