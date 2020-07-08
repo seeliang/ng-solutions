@@ -9,6 +9,9 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
+  "workspaces": {
+    "nohoist": ["@ag-grid-community/core"]
+  },
   "private": true,
   "dependencies": {
     "@ag-grid-community/all-modules": "^23.2.1",
