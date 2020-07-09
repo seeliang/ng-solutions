@@ -7,6 +7,9 @@
   "workspaces": [
     "solutions/**"
   ],
+  "scripts":{
+    "storybook": "cd solutions/storybook && yarn start"
+  },
   "dependencies": {
     "@angular/cli": "^9.1.9"
   }
