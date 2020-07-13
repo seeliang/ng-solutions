@@ -11,8 +11,4 @@ export class Button {
 
   @Output()
   onClick = new EventEmitter<any>();
-
-  ngOnInit() {
-    console.log(322243e3334)
-  }
 }
