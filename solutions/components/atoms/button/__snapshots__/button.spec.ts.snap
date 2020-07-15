@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button should snap 1`] = `
+<storybook-button-component
+  onClick={[Function EventEmitter]}
+  text=""
+>
+  <button>
+    
+  </button>
+</storybook-button-component>
+`;
