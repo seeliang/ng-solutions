@@ -36,4 +36,14 @@ describe('Button', () => {
     fixture.detectChanges();
     expect(component.onClick.emit).not.toHaveBeenCalled();
   });
+
+  it('click should fire with action', () => {
+    component.text = "56" 
+    spyOn(component.onClick, 'emit');
+    let button = fixture.debugElement.nativeElement.querySelector('button');
+    button.click();
+    fixture.whenStable().then(() => {
+        expect(component.onClick.emit).toHaveBeenCalled();
+    });
+  });
 });
