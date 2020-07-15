@@ -1,6 +1,6 @@
 import { async, ComponentFixture } from '@angular/core/testing';
 
-import { ConfigureFn, configureTests } from '../../../testing';
+import { ConfigureFn, configureTests } from '../../testing';
 
 import { SimpleComponent } from './simple.component';
 import { AnotherComponent } from './another.component';
