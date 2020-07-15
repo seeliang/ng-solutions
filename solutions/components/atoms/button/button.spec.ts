@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture } from '@angular/core/testing';
 
 import { configureTests, ConfigureFn } from '../../../jest/testing';
 
@@ -24,7 +24,9 @@ describe('Button', () => {
     })
   );
 
-  it('should snap', () => {
-    expect(fixture).toMatchSnapshot();
+  it('snap native with text', () => {
+    component.text = "56" 
+    fixture.detectChanges();
+    expect(fixture.nativeElement).toMatchSnapshot();
   });
 });
