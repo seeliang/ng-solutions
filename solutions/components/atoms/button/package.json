@@ -3,16 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-  "workspaces": {
-    "nohoist": [
-      "ts-jest",
-      "**/@types/jest"
-    ]
-  },
   "scripts": {
     "test": "yarn install && yarn jest"
-  },
-  "devDependencies": {
-    "@types/jest": "^26.0.4"
   }
 }
