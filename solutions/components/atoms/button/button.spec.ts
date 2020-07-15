@@ -29,4 +29,11 @@ describe('Button', () => {
     fixture.detectChanges();
     expect(fixture.nativeElement).toMatchSnapshot();
   });
+
+  it('click should not fire without action', () => {
+    component.text = "56" 
+    spyOn(component.onClick, 'emit');
+    fixture.detectChanges();
+    expect(component.onClick.emit).not.toHaveBeenCalled();
+  });
 });
