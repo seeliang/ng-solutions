@@ -1,0 +1,4 @@
+{
+  "extends": "../../../jest/tsconfig.spec.json"
+  }
+  

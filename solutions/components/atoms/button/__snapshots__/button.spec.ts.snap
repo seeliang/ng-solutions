@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button snap native with text 1`] = `
+<div
+  id="root0"
+>
+  <button>
+    56
+  </button>
+</div>
+`;
