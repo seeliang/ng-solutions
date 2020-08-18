@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+/* eslint-disable */
 // api data 
 const colSet = [
   {headerName: "Make", field: "make", sortable: true},
