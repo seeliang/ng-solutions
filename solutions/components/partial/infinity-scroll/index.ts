@@ -3,6 +3,7 @@ import { Component, Input,ViewChild } from '@angular/core';
 @Component({
   selector: 'infinity-scroll',
   templateUrl: './index.html',
+  styleUrls: ['./index.scss']
 })
 
 export class InfinityScroll {
