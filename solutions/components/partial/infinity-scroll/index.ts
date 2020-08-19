@@ -8,10 +8,11 @@ import { Component, Input, Output, EventEmitter,ViewChild } from '@angular/core'
 export class InfinityScroll {
   @Input()
   itemList = [];
+
   @Output()
-  reachBottom = new EventEmitter().emit();
-  @ViewChild('infinityScroll') 
-  container;
+  reachBottom = new EventEmitter<any>();
+
+
   @ViewChild('loading') 
   loading;
 
@@ -21,9 +22,9 @@ export class InfinityScroll {
     observer.observe(loading);
   }
 
-  observing(entries,observer) {
+  observing(entries) {
     if(entries[0].isIntersecting) {
-      console.log(`loading`)
+      this.reachBottom? this.reachBottom() : null;
     }
   }
 }
