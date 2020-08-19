@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter,ViewChild } from '@angular/core';
+import { Component, Input,ViewChild } from '@angular/core';
 
 @Component({
   selector: 'infinity-scroll',
@@ -6,8 +6,8 @@ import { Component, Input, Output, EventEmitter,ViewChild } from '@angular/core'
 })
 
 export class InfinityScroll {
-  @Output()
-  reachBottom = new EventEmitter<any>();
+  @Input()
+  public reachBottom:Function;
 
 
   @ViewChild('loading') 
@@ -15,13 +15,13 @@ export class InfinityScroll {
 
   ngAfterViewInit() {
     const loading = this.loading.nativeElement;
-    const observer = new IntersectionObserver(this.observing);
+    const observer = new IntersectionObserver((entries) => this.observing(entries));
     observer.observe(loading);
   }
 
   observing(entries) {
     if(entries[0].isIntersecting) {
-      this.reachBottom? this.reachBottom() : null;
+      typeof (this.reachBottom) === 'function'? this.reachBottom() : null;
     }
   }
 }

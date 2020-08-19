@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
 })
 
 export class InfinityScrollDemo {
-  ngAfterViewInit() {
-    console.log('34')
+  loading() {
+      console.log(345345)
   }
 }
