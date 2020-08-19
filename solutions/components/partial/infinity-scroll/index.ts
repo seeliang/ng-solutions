@@ -6,9 +6,6 @@ import { Component, Input, Output, EventEmitter,ViewChild } from '@angular/core'
 })
 
 export class InfinityScroll {
-  @Input()
-  itemList = [];
-
   @Output()
   reachBottom = new EventEmitter<any>();
 
