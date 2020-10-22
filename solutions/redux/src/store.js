@@ -1,6 +1,6 @@
 function counter(state, action) {
-    if (typeof state === 'undefined') {
-      return {count: 0}
+    if (!state || !Number.isInteger( state.count)) {
+      return {...state, count: 0}
     }
 
     switch (action.type) {
