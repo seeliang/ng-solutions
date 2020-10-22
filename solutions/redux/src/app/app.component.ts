@@ -5,7 +5,9 @@ declare global {
 }
 
 interface Store {
-  getState(): {count: Number};
+  getState(): {
+    counter: {count: Number}
+  };
   subscribe(func:any): any;
 }
 @Component({
@@ -25,7 +27,7 @@ export class AppComponent {
   }
 
   update() {
-    this.count= window.store.getState().count.toString();
+    this.count= window.store.getState().counter.count.toString();
     this.changeDetectorRef.detectChanges();
   }
 }

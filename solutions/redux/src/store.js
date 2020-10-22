@@ -13,7 +13,26 @@ function counter(state, action) {
     }
   }
 
+  function message(state, action) {
+    if (!state || typeof state.message !== 'string') {
+      return {...state, message: ''}
+    }
+
+    switch (action.type) {
+      case 'MESSAGE_UPDATE':
+        return {...state, message: action.message} 
+
+      default:
+        return state
+    }
+  }
+
+const rootReducer = Redux.combineReducers({
+  counter,
+  message
+})  
+
 var store = Redux.createStore(
-    counter,
+    rootReducer,
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
     )
