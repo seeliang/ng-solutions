@@ -23,6 +23,7 @@
               "src/favicon.ico",
               "src/store.js",
               "src/pub.js",
+              "src/sub.js",
               "src/assets"
             ],
             "styles": [

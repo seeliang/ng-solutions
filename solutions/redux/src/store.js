@@ -15,12 +15,12 @@ function counter(state, action) {
 
   function message(state, action) {
     if (!state || typeof state.message !== 'string') {
-      return {...state, message: ''}
+      return {...state, text: ''}
     }
 
     switch (action.type) {
       case 'MESSAGE_UPDATE':
-        return {...state, message: action.message} 
+        return {...state, text: action.text} 
 
       default:
         return state
