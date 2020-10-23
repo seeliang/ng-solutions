@@ -14,7 +14,7 @@ function counter(state, action) {
   }
 
   function message(state, action) {
-    if (!state || typeof state.message !== 'string') {
+    if (!state || typeof state.text !== 'string') {
       return {...state, text: ''}
     }
 
