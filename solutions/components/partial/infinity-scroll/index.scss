@@ -1,0 +1,7 @@
+.infinity-scroll {
+    position: relative;
+    &__loader {
+        position: absolute;
+        bottom: 200px;
+    }
+}

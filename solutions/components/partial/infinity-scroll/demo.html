@@ -1,0 +1,5 @@
+<infinity-scroll [reachBottom]="loading.bind(this)">
+    <div style="height: 130vh; border: 1px solid indigo" *ngFor="let block of blocks">
+        <h1> {{block.title}} </h1>
+    </div>
+</infinity-scroll>
