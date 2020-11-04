@@ -25,10 +25,15 @@ export class AppComponent {
   title = 'redux';
   count = '0';
   message = '';
+  unsubscribeStore: () => {}
   constructor(private changeDetectorRef: ChangeDetectorRef) {}
 
   ngOnInit () {
-    window.store.subscribe(this.update.bind(this))
+    this.unsubscribeStore = window.store.subscribe(this.update.bind(this))
+  }
+
+  ngOnDestroy() {
+    this.unsubscribeStore();
   }
 
   update() {
