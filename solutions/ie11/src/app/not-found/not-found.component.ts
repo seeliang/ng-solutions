@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotFoundComponent implements OnInit {
   public massive: string[]
+  public link: string
   constructor(
   ) { 
     this.massive = [];
@@ -14,8 +15,11 @@ export class NotFoundComponent implements OnInit {
       this.massive = [...this.massive, 'hit']
     }
   }
+
   ngOnInit() {
     console.log(this.massive)
+    this.link = Math.random().toString();
+
   }
   ngOnDestroy() {
     console.log('leave 404')
