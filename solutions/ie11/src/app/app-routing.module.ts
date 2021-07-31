@@ -44,7 +44,13 @@ const routes: Routes = [
   },
   {
     path: 'hit',
-    component: HitComponent
+    component: HitComponent,
+    children:[
+      {
+        path:'hit/:type', //:type is dynamic here
+        component:HitComponent
+      }
+    ]
     //loadChildren: () => import('./hit/hit.module').then(m => m.MainModule)
   },
 
