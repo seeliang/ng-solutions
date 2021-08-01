@@ -7,10 +7,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./hit.component.scss']
 })
 export class HitComponent implements OnInit {
-
-  constructor(public router:Router) { }
-
-  ngOnInit(): void {
+  public massive: string[]
+  constructor(public router:Router
+  ) { 
+    this.massive = [];
+    for (let i = 0; i < 4000; i++) {
+      this.massive = [...this.massive, 'hit']
+    }
   }
 
+  ngOnInit() {
+    console.log(this.massive)
+  }
 }
