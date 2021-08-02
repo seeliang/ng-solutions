@@ -6,13 +6,7 @@ import { NgModule } from '@angular/core';
  @NgModule({
    declarations: [HitTypeComponent],
    imports: [
-     RouterModule.forChild([
-       {
-         path: '',
-         component: HitTypeComponent
-       }
-     ]),
      CommonModule
    ]
  })
- export class MainModule { }
+ export class HtiTypeModule { }
