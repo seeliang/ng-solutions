@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { NotFoundComponent } from './not-found/not-found.component'
 import {MainComponent} from './main/main.component'
 import { HitComponent} from './hit/hit.component'
+import { HitTypeComponent} from './hit-type/hit-type.component'
 
 import { ActivatedRouteSnapshot, DetachedRouteHandle, RouteReuseStrategy } from '@angular/router';
 
@@ -48,7 +49,7 @@ const routes: Routes = [
     children:[
       {
         path:'hit/:type', //:type is dynamic here
-        component:HitComponent
+        component:HitTypeComponent
       }
     ]
     //loadChildren: () => import('./hit/hit.module').then(m => m.MainModule)
