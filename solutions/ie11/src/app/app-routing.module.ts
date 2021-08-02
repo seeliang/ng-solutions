@@ -48,7 +48,7 @@ const routes: Routes = [
     component: HitComponent,
     children:[
       {
-        path:'hit/:type', //:type is dynamic here
+        path:'type', //:type is dynamic here
         component:HitTypeComponent
       }
     ]
