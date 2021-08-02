@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 
 const pushUrl = (href) => {
   history.pushState({}, '', href);
@@ -15,14 +15,21 @@ const pushUrl = (href) => {
 
 export class NotFoundComponent implements OnInit {
   public link: string
-  constructor(
+  constructor(private router: Router
   ) { 
+    router.events.subscribe((val) => {
+      this.setLink();
+  });
 
+  }
+
+  setLink() {
+    this.link = Math.random().toString();
   }
 
   ngOnInit() {
 
-    this.link = Math.random().toString();
+    this.setLink();
     window.addEventListener('popstate', pushUrl);
 
   }

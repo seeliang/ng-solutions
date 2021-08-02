@@ -62,12 +62,12 @@ const routes: Routes = [
 @NgModule({
   imports: [CommonModule, RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule],
-  // providers: [
-  //   {
-  //     provide: RouteReuseStrategy,
-  //     useClass: setRouteReuseStrategy
-  //   }
-  // ]
+  providers: [
+    {
+      provide: RouteReuseStrategy,
+      useClass: setRouteReuseStrategy
+    }
+  ]
 })
 export class AppRoutingModule { }
 
