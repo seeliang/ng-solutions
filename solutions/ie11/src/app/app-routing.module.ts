@@ -6,6 +6,7 @@ import { HitComponent} from './hit/hit.component'
 import { HitTypeComponent} from './hit-type/hit-type.component'
 
 import { ActivatedRouteSnapshot, DetachedRouteHandle, RouteReuseStrategy } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 export class setRouteReuseStrategy implements RouteReuseStrategy {
   handlers: { [key: string]: DetachedRouteHandle } = {};
@@ -59,14 +60,14 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes, { useHash: true })],
+  imports: [CommonModule, RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule],
-  providers: [
-    {
-      provide: RouteReuseStrategy,
-      useClass: setRouteReuseStrategy
-    }
-  ]
+  // providers: [
+  //   {
+  //     provide: RouteReuseStrategy,
+  //     useClass: setRouteReuseStrategy
+  //   }
+  // ]
 })
 export class AppRoutingModule { }
 
